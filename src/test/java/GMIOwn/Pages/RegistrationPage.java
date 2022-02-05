@@ -1,17 +1,13 @@
-package GMIOwn.Packages;
+package GMIOwn.Pages;
 
 import GMIOwn.Utilities.Driver;
 import GMIOwn.Utilities.PageInitilizar;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
-
-import static GMIOwn.Utilities.BrowserUtils.doubleClick;
 
 public class RegistrationPage extends PageInitilizar {
 
@@ -44,9 +40,6 @@ public class RegistrationPage extends PageInitilizar {
     @FindBy(id = "email")
     public WebElement emailTextbox;
 
-    @FindBy(id = "firstPassword")
-    public WebElement firstPasswordTextbox;
-
     @FindBy(id = "secondPassword")
     public WebElement newPasswordTextbox;
 
@@ -61,8 +54,6 @@ public class RegistrationPage extends PageInitilizar {
 
     @FindBy(xpath = "//strong[contains(text(),'Registration saved!')]")
     public WebElement successMessage;
-
-
 
     @FindBy(xpath = "//li[@id='account-menu']")
     public WebElement accountMenu;
@@ -95,38 +86,20 @@ public class RegistrationPage extends PageInitilizar {
     @FindBy(xpath = "//div[@class='invalid-feedback']")
     public List<WebElement> invalidEmailmessage;
 
+    @FindBy(id = "firstPassword")
+    public WebElement firstPassword;
 
+    @FindBy(xpath = "//div[contains(text(),'Your password should contain at least one uppercase,one digit, one lowercase and one special character')]")
+    public WebElement invalidPassword;
 
+    //input[@id='firstPassword']
 
-    public void navigateRegister() {
-           System.out.println("Selenium calismiyor");
-
-
-
-         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
-        js.executeScript("arguments[0].click();", firstbutton);
-        Driver.waitAndClick(accountMenu, 5);
-
-        System.out.println("Galiba calisyr artik");
-
-
-        // Driver.waitForVisibility(firstbutton,3);
-        // Driver.waitAndClick(firstbutton,3);
-
-       // registrationButton.click();
-    }
     public   void Register(){
-
-        Actions act = new Actions(Driver.getDriver());
-
-        //act.click(firstbutton);
         firstbutton.click();
+
         System.out.println("Selenium calisiyor");
 
          register.click();
-
-         // act.moveToElement(register).click().perform();
-
     }
 
 

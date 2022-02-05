@@ -1,7 +1,6 @@
 package GMIOwn.StepDefinitions;
 
-import GMIOwn.Packages.RegistrationPage;
-import GMIOwn.Utilities.ConfigurationReader;
+import GMIOwn.Pages.RegistrationPage;
 import GMIOwn.Utilities.Driver;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -38,6 +37,14 @@ public class InvalidLoginStep {
 
 
             }
+
+    @When("user enter {string} it should be see this {string}")
+    public void user_enter_it_should_be_see_this(String password, String expected) {
+           register.firstPassword.sendKeys(password);
+          String actual= register.invalidPassword.getText();
+          Assert.assertEquals(actual,expected);
+
+    }
 
         }
 
