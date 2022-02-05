@@ -23,20 +23,25 @@ public class InvalidLoginStep {
 
         @When("user enter the {string} see {string}")
         public void user_enter_the_see (String email, String exmessage){
-            register.emailTextbox.sendKeys(email);
+            register.email.sendKeys(email);
             register.registerSubmitButton.click();
+//            String acmessage=register.invalidEmailmessage.getText();
+//            Assert.assertEquals(exmessage,acmessage);
 
             for (int i = 0; i < register.invalidEmailmessage.size(); i++) {
                 if (register.invalidEmailmessage.get(i).getText().equals(exmessage)) {
                     String actual = register.invalidEmailmessage.get(i).getText();
                     Assert.assertEquals(exmessage, actual);
                 }
+            }
+
+
 
             }
 
         }
 
-    }
+
 
 
 

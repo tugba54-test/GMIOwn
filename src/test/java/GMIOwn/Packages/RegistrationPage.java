@@ -1,23 +1,23 @@
 package GMIOwn.Packages;
 
 import GMIOwn.Utilities.Driver;
+import GMIOwn.Utilities.PageInitilizar;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
 import static GMIOwn.Utilities.BrowserUtils.doubleClick;
 
-public class RegistrationPage{
+public class RegistrationPage extends PageInitilizar {
 
     @FindBy(xpath = "//a[@href='/account/register']")
     public WebElement registrationButton;
 
-    @FindBy(xpath="//a[@href='/loan']")
-    public WebElement firstbutton;
 
 ////li[@id='account-menu' and @class ='dropdown nav-item']
     @FindBy(xpath = "//div[@class='invalid-feedback']")
@@ -50,17 +50,11 @@ public class RegistrationPage{
     @FindBy(id = "secondPassword")
     public WebElement newPasswordTextbox;
 
-    @FindBy(id = "register-submit")
-    public WebElement registerSubmitButton;
-
     @FindBy(xpath = "//div[contains(text(),'Your SSN is invalid')]")
     public WebElement invalidSSnWarningMessage;
 
     @FindBy(xpath = "//div[contains(text(),'Your mobile phone number is invalid')]")
     public WebElement invalidPhoneNumberWarningMessage;
-
-    @FindBy(xpath = "//div[@class='invalid-feedback']")
-    public List<WebElement> invalidEmailmessage;
 
     @FindBy(xpath = "//div[contains(text(),'translation-not-found')]")
     public WebElement ssnWarningmessage;
@@ -82,8 +76,27 @@ public class RegistrationPage{
     @FindBy(xpath ="//div[@class='invalid-feedback']")
     public WebElement invalidpassword;
 
+    @FindBy(xpath="//ul[@id='header-tabs']//li[8]")
+    public WebElement firstbutton;
+
     @FindBy(xpath ="//a[@id='login-item']")
     public WebElement signin;
+
+    @FindBy(xpath ="//li[@id='account-menu']/div/a[2]/span")
+    public WebElement register;
+
+
+    @FindBy(xpath ="//input[@id='email']")
+    public WebElement email;
+
+    @FindBy(xpath = "//button[@id='register-submit']")
+    public WebElement registerSubmitButton;
+
+    @FindBy(xpath = "//div[@class='invalid-feedback']")
+    public List<WebElement> invalidEmailmessage;
+
+
+
 
     public void navigateRegister() {
            System.out.println("Selenium calismiyor");
@@ -110,12 +123,12 @@ public class RegistrationPage{
         firstbutton.click();
         System.out.println("Selenium calisiyor");
 
+         register.click();
 
-
-          act.moveToElement(signin).click().perform();
-        // signin.click();
+         // act.moveToElement(register).click().perform();
 
     }
+
 
 
 }

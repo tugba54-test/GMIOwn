@@ -7,10 +7,10 @@ Feature: Invalid Email
 
     Examples:
       |email          |errormessage         |
-      |12345gmail.com |Your email is invalid |
-      |12345@gmailcom |Your email is invalid|
-      |Aysegmail.com  |Your email is invalid|
-      |Ayse@gmailcom  |Your email is invalid|
+      |12345gmail.com |Your email is invalid|
+     # |12345@gmailcom |Your email is invalid|
+#      |Aysegmail.com  |Your email is invalid|
+#      |Ayse@gmailcom  |Your email is invalid|
 
  # Scenario: There should not be an option of any other language other than English or Turkish
 

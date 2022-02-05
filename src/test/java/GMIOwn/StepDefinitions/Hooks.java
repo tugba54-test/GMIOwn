@@ -21,15 +21,17 @@ public class Hooks {
 
     @After
     public void end(Scenario scenario) {
-
-        System.out.println("Ending scenario -->" + scenario.getName());
         byte[] pic;
         if (scenario.isFailed()) {
-            pic = BrowserUtils.takesScreenshot("failed/" + scenario.getName());
+        pic = BrowserUtils.takeScreenshot("failed/" + scenario.getName());
         } else {
-            pic = BrowserUtils.takesScreenshot("passed/" + scenario.getName());
+        pic = BrowserUtils.takeScreenshot("passed/" + scenario.getName());
         }
-       // scenario.attach(pic, "image/png", scenario.getName());
+
+       //scenario.attach(pic, "image/png", scenario.getName());
+       scenario.embed(pic, scenario.getName());
+
+
         closeDriver();
     }
 }

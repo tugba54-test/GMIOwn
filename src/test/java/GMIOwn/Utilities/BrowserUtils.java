@@ -18,6 +18,7 @@ import java.util.Random;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.testng.reporters.jq.BasePanel.C;
 
 public class BrowserUtils {
     public static void wait(int secs) {
@@ -248,40 +249,58 @@ public class BrowserUtils {
         jse.executeScript(command);
     }
 
-    //	public static String takeScreenShot(String fileName) {
-//	TakesScreenshot ts = (TakesScreenshot) driver;
-//	File screen = ts.getScreenshotAs(OutputType.FILE);
-//	String scrshotFile = Constants.SCREENSHOTS_FILEPATH + fileName + "_" + getTime() + ".png";
-//	try {
-//		FileUtils.copyFile(screen, new File(scrshotFile));
-//	} catch (IOException e) {
-//		System.out.println("Cannot take screenshot");
-//	}
-//	return scrshotFile;
-//}
-    public static byte[] takesScreenshot(String filename) {
-        TakesScreenshot ts = (TakesScreenshot)Driver.driver;//downcasting
-        //create picture in a form of bytes --> we need it to attach it to our scenario
-        byte[] picture = ts.getScreenshotAs(OutputType.BYTES);
+    	public static byte[] takeScreenShot(String fileName) {
+	TakesScreenshot ts = (TakesScreenshot)Driver.getDriver();
+            byte[] picture = ts.getScreenshotAs(OutputType.BYTES);
+            File file = ts.getScreenshotAs(OutputType.FILE);
 
-        //taking a picture in a form of file and store it in the specified location
-        Date date = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MMdd_HHmmss");
+            Date date = new Date();
+       SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MMdd_HHmmss");
         String timeStamp = sdf.format(date.getTime());
+	String scrshotFile ="C:/Users/16824/IdeaProjects/GmiOwn1"+"/screenshots/"+ fileName+"_" + timeStamp+ ".png";
+	try {
+		FileUtils.copyFile(file, new File(scrshotFile));
+	} catch (IOException e) {
+		System.out.println(scrshotFile);
+        System.out.println("Can not take screenshot");
+
+
+	}
+	return picture;
+}
+    /**
+     * This method creates screenshot with specified name as parameter
+     * @param filename
+     * @return
+     */
+    public static byte[] takeScreenshot(String filename) {
+        TakesScreenshot ts = (TakesScreenshot) Driver.getDriver();
+        byte[] picBytes = ts.getScreenshotAs(OutputType.BYTES);
 
         File file = ts.getScreenshotAs(OutputType.FILE);
-        String scrshotFile = ConfigurationReader.getProperty("SCREENSHOTS_FILEPATH")+"."+ filename + timeStamp + ".png";
+        String destinationFile = "C:/Users/16824/IdeaProjects/GmiOwn1"+"/screenshots/"+filename+ getTimeStemp() + ".png";
+        // Constants.SCREENSHOT_FILEPATH + filename
 
         try {
-            FileUtils.copyFile(file, new File(scrshotFile));
-        } catch (IOException e) {
-            System.out.println("Cannot take a screenshot");
+            FileUtils.copyFile(file, new File(destinationFile));
+        } catch (Exception ex) {
+            System.out.println("Cannot take screenshot!");
+            System.out.println(destinationFile);
         }
 
-        return picture;
+        return picBytes;
     }
 
 
+    /**
+     * This method gets date and time
+     * @return date with time
+     */
+    public static String getTimeStemp() {
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
+        return sdf.format(date.getTime());
+    }
 
 
 }

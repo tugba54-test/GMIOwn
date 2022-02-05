@@ -24,7 +24,7 @@ public class Driver {
     }
 
     //create a driver instance
-    static WebDriver driver;
+    public static WebDriver driver;
     //to initialize the driver we create a static method
     public static WebDriver getDriver() {
         //create the driver if and only if it is null
