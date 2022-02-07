@@ -34,9 +34,6 @@ public class RegistrationPage extends PageInitilizar {
     @FindBy(id = "mobilephone")
     public WebElement mobilephoneTextbox;
 
-    @FindBy(id = "username")
-    public WebElement usernameTextbox;
-
     @FindBy(id = "email")
     public WebElement emailTextbox;
 
@@ -94,12 +91,32 @@ public class RegistrationPage extends PageInitilizar {
 
     //input[@id='firstPassword']
 
+    @FindBy(xpath ="//ul[@id='strengthBar']//li")
+    public WebElement passwordStrength;
+
+    @FindBy(xpath ="//li[@id='account-menu']//span")
+    public WebElement customer;
+
+    @FindBy(xpath ="//a[@class='dropdown-item'][3]")
+    public WebElement Signout;
+
+    @FindBy(id = "username")
+    public WebElement usernameTextbox;
+
+    @FindBy(xpath = "//input[@name='password']")
+    public WebElement password;
+
+    @FindBy(xpath ="//button[@type='submit']")
+    public WebElement submit;
+
+    @FindBy(xpath ="//button[@class='btn btn-primary']")
+    public WebElement SgnAgain;
+
+
     public   void Register(){
         firstbutton.click();
-
         System.out.println("Selenium calisiyor");
-
-         register.click();
+        register.click();
     }
 
 

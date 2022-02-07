@@ -1,6 +1,7 @@
 package GMIOwn.StepDefinitions;
 
 import GMIOwn.Pages.RegistrationPage;
+import GMIOwn.Utilities.BrowserUtils;
 import GMIOwn.Utilities.Driver;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -32,21 +33,45 @@ public class InvalidLoginStep {
                     String actual = register.invalidEmailmessage.get(i).getText();
                     Assert.assertEquals(exmessage, actual);
                 }
-            }
-
-
-
-            }
-
-    @When("user enter {string} it should be see this {string}")
-    public void user_enter_it_should_be_see_this(String password, String expected) {
+            }}
+            @When("user enter {string} it should be see this {string}")
+         public void user_enter_it_should_be_see_this(String password, String expected) {
            register.firstPassword.sendKeys(password);
-          String actual= register.invalidPassword.getText();
-          Assert.assertEquals(actual,expected);
+          String actual= register.passwordStrength.getCssValue("background-color");
+        System.out.println(actual);
+          Assert.assertEquals(expected,actual);
 
     }
 
-        }
+    @Then("click sign in button")
+    public void click_sign_in_button() {
+        register.firstbutton.click();
+       register.signin.click();
+    }
+
+    @When("user enter {string}  and {string}  succeessfully login")
+    public void user_enter_and_succeessfully_login(String username, String password) {
+
+        register.usernameTextbox.sendKeys(username);
+        register.password.sendKeys(password);
+        register.submit.click();
+    }
+
+    @Given("then can be log out")
+    public void then_can_be_log_out() {
+
+      //  Assert.assertTrue(register.customer.isDisplayed());
+        register.customer.click();
+        BrowserUtils.clickWithJS(register.Signout);
+       // register.Signout.click();
+        Assert.assertTrue(register.SgnAgain.isDisplayed());
+
+
+    }
+
+
+
+}
 
 
 

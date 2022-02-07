@@ -15,23 +15,22 @@ public class Hooks {
     public void start(Scenario scenario) {
         System.out.println("Starting scenario -->" + scenario.getName());
        // Driver.getDriver().get(ConfigurationReader.getProperty("url"));
-
-
+        
     }
 
     @After
     public void end(Scenario scenario) {
-        byte[] pic;
-        if (scenario.isFailed()) {
-        pic = BrowserUtils.takeScreenshot("failed/" + scenario.getName());
-        } else {
+        byte[] pic ;
+        if (!scenario.isFailed()) {
         pic = BrowserUtils.takeScreenshot("passed/" + scenario.getName());
+        }
+        else{
+        pic = BrowserUtils.takeScreenshot("failed/" + scenario.getName());
         }
 
        //scenario.attach(pic, "image/png", scenario.getName());
        scenario.embed(pic, scenario.getName());
-
-
+    
         closeDriver();
     }
 }

@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="16.748444">
-<testcase classname="Invalid Email" name="Email id cannot contain just digits or chars without &quot;@&quot; sign or &quot;.&quot; extension" time="16.748444">
+<testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="3" time="62.437085">
+<testcase classname="Registration page should restrict password usage to a secure" name="Password Restriction validate" time="20.538728">
 <system-out><![CDATA[Given user navigate to "http://www.gmibank.com".............................passed
 Then click register.........................................................passed
-When user enter the "12345gmail.com" see "Your email is invalid"............passed
+When user enter "eA22HJK" it should be see this "rgba(255, 255, 0, 1)"......passed
+]]></system-out>
+</testcase>
+<testcase classname="Registration page should restrict password usage to a secure" name="Password Restriction validate 2" time="16.999306">
+<system-out><![CDATA[Given user navigate to "http://www.gmibank.com".............................passed
+Then click register.........................................................passed
+When user enter "ee2$HJK" it should be see this "rgba(0, 255, 0, 1)"........passed
+]]></system-out>
+</testcase>
+<testcase classname="Registration page should restrict password usage to a secure" name="Password Restriction validate 3" time="24.899051">
+<system-out><![CDATA[Given user navigate to "http://www.gmibank.com".............................passed
+Then click register.........................................................passed
+When user enter "AS23" it should be see this "rgba(255, 153, 0, 1)".........passed
 ]]></system-out>
 </testcase>
 </testsuite>

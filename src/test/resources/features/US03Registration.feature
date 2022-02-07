@@ -12,13 +12,15 @@ Feature: Registration page should restrict password usage to a secure
   Scenario Outline:Password Restriction validate
     Given user navigate to "http://www.gmibank.com"
     Then click register
-    When user enter "<Password>" it should be see this "<Message>"
+    When user enter "<Password>" it should be see this "<Expected>"
     Examples:
-   | Password|Message|
-   |eA22HJK  |Your password should contain at least one uppercase,one digit, one lowercase and one special character|
-   |eAA$HJK  |Your password should contain at least one uppercase,one digit, one lowercase and one special character |
-   |AA2$HJK   | Your password should contain at least one uppercase,one digit, one lowercase and one special character   |
-#   |ee2$HJK      |5      |
+   | Password|Expected|
+   |eA22HJK  |rgba(255, 255, 0, 1)|
+   |ee2$HJK  |rgba(0, 255, 0, 1) |
+   | AS23    |rgba(255, 153, 0, 1)|
+  # |eAA$HJK  |rgba(255, 255, 0, 1)|
+  # | AS       |rgba(255, 153, 0, 1)  |
+  # |AA2$HJK   | background-color: rgb(255, 255, 0); |
 #   |eeAA44$$GYVE|5      |
 #   |eA2$HJK       |5      |
 
