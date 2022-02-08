@@ -95,7 +95,7 @@ public class RegistrationPage extends PageInitilizar {
     public WebElement passwordStrength;
 
     @FindBy(xpath ="//li[@id='account-menu']//span")
-    public WebElement customer;
+    public WebElement customer; //li[@id='account-menu']
 
     @FindBy(xpath ="//a[@class='dropdown-item'][3]")
     public WebElement Signout;
@@ -112,7 +112,7 @@ public class RegistrationPage extends PageInitilizar {
     @FindBy(xpath ="//button[@class='btn btn-primary']")
     public WebElement SgnAgain;
 
-    @FindBy(xpath ="//div[@class='modal fade show']")                                                             //*[@id=\"login-page\"]/div/form/div[2]/div[1]/div[1]/div/span/strong")                                                     //div[@class='alert alert-danger fade show']/span/strong
+    @FindBy(xpath ="//div[@class='alert alert-danger fade show']/span/strong")                                                  //div[@class='modal fade show']")                                                             //*[@id=\"login-page\"]/div/form/div[2]/div[1]/div[1]/div/span/strong")                                                     //div[@class='alert alert-danger fade show']/span/strong
     public WebElement FailedSgnIn;
 
 

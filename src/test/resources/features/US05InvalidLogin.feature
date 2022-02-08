@@ -7,9 +7,9 @@ Feature:should not be accessible with invalid credentials
     When user enter "<Username>"  and "<Password>"  And see the  "<Message>"
     Examples:
   |Username|Password|Message|
-  |admin   |12345   |null|
- # |12345   |admin   |Failed to sign in! Please check your credentials and try again.|
-#  |user    |12345   |
+  |admin   |12345   |Failed to sign in!|
+  |user    |12345   |Failed to sign in!|
+  # |12345   |admin   |Failed to sign in! Please check your credentials and try again.|
 #  |12345   |user    |
 
 

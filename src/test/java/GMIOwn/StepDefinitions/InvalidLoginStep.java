@@ -79,7 +79,7 @@ public class InvalidLoginStep {
         String acmessage=register.FailedSgnIn.getText();
        System.out.println(acmessage);
 
-      // Assert.assertEquals(expected1,acmessage1);
+       Assert.assertEquals(expected1,acmessage);
 
 
 
