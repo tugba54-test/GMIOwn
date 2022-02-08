@@ -49,12 +49,15 @@ public class InvalidLoginStep {
        register.signin.click();
     }
 
-    @When("user enter {string}  and {string}  succeessfully login")
-    public void user_enter_and_succeessfully_login(String username, String password) {
+    @When("user enter {string}  and {string}  successfully login")
+    public void user_enter_and_successfully_login(String username, String password) {
 
         register.usernameTextbox.sendKeys(username);
         register.password.sendKeys(password);
+        BrowserUtils.verifyElementDisplayed(register.submit);
         register.submit.click();
+
+
     }
 
     @Given("then can be log out")

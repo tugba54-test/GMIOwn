@@ -4,7 +4,7 @@ Feature: Login page should accessible with valid credentials
   Scenario Outline: Login page should accessible with valid credentials
     Given user navigate to "http://www.gmibank.com"
     Then click sign in button
-    When user enter "<username>"  and "<Password>"  succeessfully login
+    When user enter "<username>"  and "<Password>"  successfully login
     Given then can be log out
     Examples:
       | username   | Password |

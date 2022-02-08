@@ -106,7 +106,7 @@ public class RegistrationPage extends PageInitilizar {
     @FindBy(xpath = "//input[@name='password']")
     public WebElement password;
 
-    @FindBy(xpath ="//button[@type='submit']")
+    @FindBy(xpath ="//button[@class='btn btn-primary']")
     public WebElement submit;
 
     @FindBy(xpath ="//button[@class='btn btn-primary']")
