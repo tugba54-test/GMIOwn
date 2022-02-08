@@ -112,6 +112,10 @@ public class RegistrationPage extends PageInitilizar {
     @FindBy(xpath ="//button[@class='btn btn-primary']")
     public WebElement SgnAgain;
 
+    @FindBy(xpath ="//div[@class='modal fade show']")                                                             //*[@id=\"login-page\"]/div/form/div[2]/div[1]/div[1]/div/span/strong")                                                     //div[@class='alert alert-danger fade show']/span/strong
+    public WebElement FailedSgnIn;
+
+
 
     public   void Register(){
         firstbutton.click();

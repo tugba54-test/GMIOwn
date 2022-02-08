@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features",
         glue = "GMIOwn/StepDefinitions",
-        tags = "@ValidLogin",
+        tags = "@InValidLogin2",
         dryRun = false
 
 )

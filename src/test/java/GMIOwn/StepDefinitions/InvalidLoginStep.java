@@ -60,11 +60,27 @@ public class InvalidLoginStep {
     @Given("then can be log out")
     public void then_can_be_log_out() {
 
-      //  Assert.assertTrue(register.customer.isDisplayed());
+       Assert.assertTrue(register.customer.isDisplayed());
         register.customer.click();
         BrowserUtils.clickWithJS(register.Signout);
-       // register.Signout.click();
+        register.Signout.click();
         Assert.assertTrue(register.SgnAgain.isDisplayed());
+
+
+    }
+
+    @When("user enter {string}  and {string}  And see the  {string}")
+    public void user_enter_and_And_see_the(String username, String password, String expected1) {
+
+        register.usernameTextbox.sendKeys(username);
+        register.password.sendKeys(password);
+        register.submit.click();
+       BrowserUtils.verifyElementDisplayed(register.FailedSgnIn);
+        String acmessage=register.FailedSgnIn.getText();
+       System.out.println(acmessage);
+
+      // Assert.assertEquals(expected1,acmessage1);
+
 
 
     }
