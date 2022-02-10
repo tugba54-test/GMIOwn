@@ -70,6 +70,7 @@ public class RegistrationPage extends PageInitilizar {
     @FindBy(xpath ="//a[@id='login-item']")
     public WebElement signin;
 
+
     @FindBy(xpath ="//li[@id='account-menu']/div/a[2]/span")
     public WebElement register;
 

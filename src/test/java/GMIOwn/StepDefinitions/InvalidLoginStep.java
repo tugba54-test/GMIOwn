@@ -54,8 +54,9 @@ public class InvalidLoginStep {
 
         register.usernameTextbox.sendKeys(username);
         register.password.sendKeys(password);
-        BrowserUtils.verifyElementDisplayed(register.submit);
-        register.submit.click();
+
+        //BrowserUtils.verifyElementDisplayed(register.submit);
+        register.submit.submit();
 
 
     }

@@ -11,7 +11,8 @@ public class UserSettingStep {
 
     @Given("User update {string} and lastname {string} email {string} and {string}")
     public void user_update_and_lastname_email_and(String name, String lastname, String email, String language) {
-        register.signin.click();
+
+        register.customer.click();
         user.UpdateUser(name,lastname,email,language);
 
     }
