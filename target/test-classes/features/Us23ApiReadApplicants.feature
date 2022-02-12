@@ -3,7 +3,7 @@ Feature: System should allow to read all Applicants using api end point
   "https://www.gmibank.com/api/tp-account-registrations"
 
   Scenario:System should allow to read all Applicants using api end point
- Given user go to api end point  "https://www.gmibank.com/api/tp-customers"
+ Given user go to api end point  "https://www.gmibank.com/api/tp-account-registrations"
  And read all applicants and sets create pojo class
   Then Validate data
 #  System should allow to read all Applicants using api end point

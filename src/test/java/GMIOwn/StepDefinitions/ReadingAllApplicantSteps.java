@@ -25,7 +25,7 @@ public class ReadingAllApplicantSteps {  //https://www.gmibank.com/api/tp-custom
                 "Content_Type", ContentType.JSON)  //"Accept", ContentType.JSON
                 .when().get(api_end_point)
                 .then().contentType(ContentType.JSON).extract().response();
-       //response.prettyPrint();
+      // response.prettyPrint();
 
 
 
@@ -35,13 +35,15 @@ public class ReadingAllApplicantSteps {  //https://www.gmibank.com/api/tp-custom
     public void read_all_applicants_and_sets_create_pojo_class() throws IOException {
 
         JsonPath jsonpath=response.jsonPath();
-        List<Map<String,?>> applicant= jsonpath.getList("");
+
+        List<Map<String,?>> applicant;
+        applicant = jsonpath.getList("");
         //System.out.println(applicant+" applicant");
 
         for (Map<String,?> applicants:applicant){
-           System.out.println(applicants+" applicants");
+           //System.out.println(applicants+" applicants");
         }
-        String lastName=jsonpath.getString("applicant.lastName");
+        String lastName=jsonpath.getString("applicants.lastName");
         System.out.println("lastName = " + lastName);
 
 
